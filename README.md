@@ -1,71 +1,94 @@
-AUV Depth Control Benchmark
+# 🚢 AUV Depth Control Benchmark  
+### Comparative Study of PID, LQR, FLC, and SMC Controllers
 
-This repository provides a complete benchmark and comparison of four classical and intelligent controllers for Autonomous Underwater Vehicle (AUV) depth regulation. The project includes unified MATLAB simulations, plots, and analysis for:
+This repository provides a complete and unified benchmark for depth control of an Autonomous Underwater Vehicle (AUV).  
+Four classical and intelligent control strategies are implemented, simulated, and compared under a consistent dynamic model.
 
-PID Controller
+---
 
-LQR Controller
+## 📌 **Controllers Implemented**
+- **PID Controller** (baseline method)  
+- **LQR Controller** (optimal control)  
+- **Fuzzy Logic Controller (FLC)**  
+- **Sliding Mode Controller (SMC)** (robust nonlinear method)
 
-Fuzzy Logic Controller (FLC)
+Each controller is evaluated in terms of:
+- Depth tracking accuracy  
+- Control effort  
+- Convergence and dynamic response  
 
-Sliding Mode Controller (SMC)
+---
 
-The benchmark evaluates performance in terms of depth tracking, control effort, and system behavior under the same dynamic model.
+## 📁 **Repository Structure**
 
-Repository Structure
+```
+AUV-Depth-Control-Benchmark/
+│
+├── pid_depth_controller.m
+├── lqr_depth_controller.m
+├── flc_depth_controller.m
+├── smc_depth_controller.m
+├── auv_dynamics.m
+├── compare_controllers.m
+│
+├── results/
+│   ├── *.mat
+│   └── plots/*.png
+│
+└── report/
+    └── AUV_Depth_Control_Report.pdf
+```
 
-pid_depth_controller.m
+---
 
-lqr_depth_controller.m
+## ▶️ **How to Run**
 
-flc_depth_controller.m
+1. Generate simulation results for each controller:
+   ```matlab
+   pid_depth_controller
+   lqr_depth_controller
+   flc_depth_controller
+   smc_depth_controller
+   ```
 
-smc_depth_controller.m
+2. Run the comparison script:
+   ```matlab
+   compare_controllers
+   ```
 
-auv_dynamics.m
+All figures and MAT files will be saved automatically in the `results/` directory.
 
-compare_controllers.m
+---
 
-results/ (MAT-files + figures)
+## 🛠 **Requirements**
+- MATLAB R2021a or newer  
+- Fuzzy Logic Toolbox (for FLC)  
 
-report/ (Final PDF report)
+---
 
-Features
+## 📊 **Features**
+- Unified AUV dynamic model  
+- Modular controller implementations  
+- Automatic result logging  
+- Clean visual comparison figures  
+- Complete final PDF report included  
 
-Unified dynamic model for all simulations
+---
 
-Individual controller implementations
+## 📑 **Report**
+A full technical report—including methodology, modeling, controller design, simulation results, and discussion—is available in:
 
-Automatic result saving (MAT & PNG)
+```
+/report/AUV_Depth_Control_Report.pdf
+```
 
-Comparison plots (depth, velocity, control input)
+---
 
-Final technical report included
+## ✨ **Author**
+**Safa Bazrafshan**
 
-Requirements
+---
 
-MATLAB R2021a or later
-
-Fuzzy Logic Toolbox (for FLC)
-
-How to Run
-
-Run each controller file to generate results:
-pid_depth_controller
-lqr_depth_controller
-flc_depth_controller
-smc_depth_controller
-
-Run the comparison script:
-compare_controllers
-
-This will generate all comparison plots and store them in the results folder.
-
-Citation
-
-If you use this benchmark, please cite or reference the repository.
-
-Author
-
-Safa Bazrafshan
-
+## ⭐ If you find this work useful...
+Please consider starring the repository.  
+It helps others discover the project and supports further work in AUV control systems.
