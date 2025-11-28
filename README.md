@@ -1,174 +1,71 @@
 AUV Depth Control Benchmark
-PID • LQR • Fuzzy Logic • Sliding Mode Control
 
-A structured and reproducible benchmark for depth regulation of an Autonomous Underwater Vehicle (AUV) using four classical and intelligent controllers.
-The project provides a unified simulation environment, clean MATLAB implementations, and comparative performance evaluation.
+This repository provides a complete benchmark and comparison of four classical and intelligent controllers for Autonomous Underwater Vehicle (AUV) depth regulation. The project includes unified MATLAB simulations, plots, and analysis for:
 
-📌 Overview
+PID Controller
 
-This repository implements and compares:
+LQR Controller
 
-PID Control (baseline controller)
+Fuzzy Logic Controller (FLC)
 
-LQR (optimal state-feedback)
+Sliding Mode Controller (SMC)
 
-Fuzzy Logic Control (FLC) (Mamdani-based intelligent controller)
+The benchmark evaluates performance in terms of depth tracking, control effort, and system behavior under the same dynamic model.
 
-Sliding Mode Control (SMC) (robust nonlinear control)
+Repository Structure
 
-All controllers operate on the same 1-DOF vertical AUV dynamic model, making this repository suitable for:
+pid_depth_controller.m
 
-Research benchmark
+lqr_depth_controller.m
 
-Academic coursework
+flc_depth_controller.m
 
-Intelligent control experiments
+smc_depth_controller.m
 
-Extensions to adaptive and RL-based controllers
+auv_dynamics.m
 
-⚙️ Features
+compare_controllers.m
 
-Full MATLAB implementation — no toolboxes required except Fuzzy Logic Toolbox for FLC
+results/ (MAT-files + figures)
 
-Clean separation of controllers, model, and evaluation
+report/ (Final PDF report)
 
-Unified simulation parameters for fair comparison
+Features
 
-Standard logging format (*.mat files)
+Unified dynamic model for all simulations
 
-High-quality comparison plots
+Individual controller implementations
 
-Extendable architecture for new controllers
+Automatic result saving (MAT & PNG)
 
+Comparison plots (depth, velocity, control input)
 
-📘 AUV Dynamic Model
+Final technical report included
 
-The benchmark uses a compact 2-state nonlinear model representing vertical motion:
+Requirements
 
-𝑥
-=
-[
-𝑧
+MATLAB R2021a or later
 
+Fuzzy Logic Toolbox (for FLC)
 
-𝑤
-]
-,
-𝑧
-˙
-=
-𝑤
-x=[
-z
-w
-	​
+How to Run
 
-],
-z
-˙
-=w
-𝑤
-˙
-=
-1
-𝑚
-(
-𝑢
-−
-𝑑
-(
-𝑤
-)
-−
-𝑚
-𝑔
-+
-𝐵
-)
-w
-˙
-=
-m
-1
-	​
-
-(u−d(w)−mg+B)
-
-This abstraction isolates control performance from hydrodynamic complexity.
-
-🧠 Implemented Controllers
-1. PID Controller
-
-A baseline for comparison.
-Performs reasonably well but limited robustness to disturbances.
-
-2. LQR Controller
-
-Optimal state-feedback with smooth and efficient actuation.
-Shows strong transient behavior and stable convergence.
-
-3. Fuzzy Logic Controller
-
-Mamdani-type FIS, human-interpretable rules, smooth output.
-Effective for nonlinear or uncertain environments.
-
-4. Sliding Mode Control (SMC)
-
-Robust to disturbances and parameter variations.
-Fast convergence; aggressive control effort.
-
-📊 Comparison Results
-
-Three primary metrics are evaluated:
-
-1. Depth Tracking
-
-Transient performance and steady-state accuracy across controllers.
-
-2. Error Evolution
-
-How quickly each controller eliminates tracking error.
-
-3. Control Input Profile
-
-Aggressiveness, efficiency, and smoothness of actuation.
-
-Figures are saved automatically under results/plots/.
-
-▶️ Running the Benchmark
-
-To evaluate all controllers:
-
-compare_controllers
-
-
-To run an individual controller:
-
+Run each controller file to generate results:
 pid_depth_controller
 lqr_depth_controller
 flc_depth_controller
 smc_depth_controller
 
-🧩 Extending the Work
+Run the comparison script:
+compare_controllers
 
-This repository is designed to serve as a base for:
+This will generate all comparison plots and store them in the results folder.
 
-Adaptive controllers
+Citation
 
-Reinforcement Learning-based control
+If you use this benchmark, please cite or reference the repository.
 
-Fault-tolerant & robust control
+Author
 
-Full 6-DOF AUV simulation
+Safa Bazrafshan
 
-Contributions and pull requests are welcome.
-
-🧑‍💻 Author
-
-safa Bazrafshan
-Graduate Researcher – Intelligent Control Systems
-Email: safa.bazrafshan@gmail.com
-website: safabazrafshan.com
-
-
-⭐ If this repository helps your work, consider giving it a star.
